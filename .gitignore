@@ -6,3 +6,7 @@
 not_for_repo/
 *.db
 debug.log
+
+*.swp
+*.swo
+tags
