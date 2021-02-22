@@ -1,3 +1,4 @@
+var background_modernWood = document.createElement("img");
 var player1Piece = document.createElement("img");
 var player2Piece = document.createElement("img");
 
@@ -30,6 +31,7 @@ function loadImageForTileCode(tileCode, fileName) {
 function loadImages() {
 
 	var imageList = [
+		{varName: background_modernWood, theFile: "modern_wood.png"},
 		{varName: player1Piece, theFile: "player_1_piece.png"},
 		{varName: player2Piece, theFile: "player_2_piece.png"},
 
