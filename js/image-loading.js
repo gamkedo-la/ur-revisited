@@ -45,10 +45,18 @@ function loadImages() {
 		{tileType: PLAYER_1_HOME_ROW, theFile: "ur_blank.png"},
 		{tileType: PLAYER_2_HOME_ROW, theFile: "ur_blank.png"},
 
-		{tileType: ROLL_BUTTON, theFile: "ur_rosary.png"},
+		{tileType: ROLL_BUTTON, theFile: "ur_roll.png"},
 		{tileType: DICE_SPOT, theFile: "ur-dice-0.png"},
 		{tileType: DICE_0, theFile: "ur-dice-0.png"},
 		{tileType: DICE_1, theFile: "ur-dice-1.png"},
+
+		// Extra tiles
+		{tileType: TILE_GATE, theFile: "ur_gate.png"},
+		{tileType: TILE_HOUSE, theFile: "ur_house.png"},
+		{tileType: TILE_MARKET, theFile: "ur_market.png"},
+		{tileType: TILE_TEMPLE, theFile: "ur_temple.png"},
+		{tileType: TILE_TREASURY, theFile: "ur_treasury.png"},
+
 		//{tileType: BOARD_EMPTY_SPACE, 
       //theFile: "transparent_block.png"},
 		];

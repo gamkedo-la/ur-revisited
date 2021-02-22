@@ -8,14 +8,14 @@ const BOARD_Y_OFFSET = 60;
 
 const GAME_BOARD = [
    5,0,0,0,0,0,6,
-   5,0,2,1,2,0,6,
-   5,0,1,1,1,0,6,
-   5,0,1,1,1,0,6,
-   5,0,3,2,3,0,6,
-   5,0,0,1,0,0,6,
-   5,0,4,1,4,0,6,
-   0,0,2,1,2,0,0,
-   0,0,1,1,1,0,0,
+   5,0,2,12,2,0,6,
+   5,0,15,13,15,0,6,
+   5,0,13,14,13,0,6,
+   5,0,15,2,15,0,6,
+   5,0,0,13,0,0,6,
+   5,0,4,14,4,0,6,
+   0,0,2,15,2,0,0,
+   0,0,16,13,16,0,0,
    0,0,0,0,0,0,0,
    0,8,7,7,7,7,0,
    0,0,0,0,0,0,0,
@@ -35,6 +35,12 @@ const DICE_1 = 11;
 
 const EMPTY_TILES = [ TILE_END, BOARD_EMPTY_SPACE ]
 
+// Extra tiles
+const TILE_GATE = 12;
+const TILE_HOUSE = 13;
+const TILE_MARKET = 14;
+const TILE_TEMPLE = 15;
+const TILE_TREASURY = 16;
 
 var player1PieceIndices = [];
 var player2PieceIndices = [];
