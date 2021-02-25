@@ -14,10 +14,7 @@ function setupMouseInput() {
     //document.getElementById("debugText").innerHTML = "("+mousePos.x+","+mousePos.y+")";
   } );
 
-  canvas.addEventListener('click', handleMouseclick(evt));
-}
-
-function handleMouseclick(evt) {
+  canvas.addEventListener('click', function(evt) {
     var mousePos = calculateMousePos(evt);
 
     var tileOverCol = Math.floor( (mousePos.x - BOARD_X_OFFSET) / TILE_W);
@@ -54,7 +51,8 @@ function handleMouseclick(evt) {
         selectedIdx = -1; // clear selection
       }
     }
-  }
+  } );
+}
 
 function calculateMousePos(evt) {
   var rect = canvas.getBoundingClientRect(), root = document.documentElement;
