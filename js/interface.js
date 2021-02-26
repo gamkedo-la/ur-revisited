@@ -1,4 +1,5 @@
 var selectedPiece = null;
+var currentPlayer = 1;
 
 var rollButton = document.createElement("button");
 
@@ -36,22 +37,24 @@ function mouseClickHandler(evt) {
     }
 
     if(selectedIdx == -1) {
-      if( player1PieceIndices.includes(clickedIdx) || 
-          player2PieceIndices.includes(clickedIdx) ) {
+      if( (player1PieceIndices.includes(clickedIdx) && currentPlayer == 1 ) || 
+          player2PieceIndices.includes(clickedIdx) && currentPlayer == 2) {
 
         selectedIdx = clickedIdx;
         //console.log("selectedIdx", selectedIdx, tileOverCol, tileOverRow);
       }
     } else { //selectedIdx != -1
-      if(player1PieceIndices.includes(selectedIdx)) {
+      if(player1PieceIndices.includes(selectedIdx) ) {
         player1PieceIndices.splice(player1PieceIndices.indexOf(selectedIdx), 1)
         player1PieceIndices.push(clickedIdx);
         selectedIdx = -1; // clear selection
+	endPlayerTurn();
       }
-      if(player2PieceIndices.includes(selectedIdx)) {
+      if(player2PieceIndices.includes(selectedIdx) ) {
         player2PieceIndices.splice(player2PieceIndices.indexOf(selectedIdx), 1)
         player2PieceIndices.push(clickedIdx);
         selectedIdx = -1; // clear selection
+	endPlayerTurn();
       }
     }
 }
@@ -87,4 +90,14 @@ function rollDice() {
     //diceRolls.push(roll);
   }
   console.log("Dice Rolls: ", diceRolls);
+}
+
+function endPlayerTurn() {
+	if(currentPlayer === 1) {
+		currentPlayer = 2;
+	} else {
+		currentPlayer = 1;
+	}
+	debug("Player " + currentPlayer + "'s turn.");
+	console.log("Player " + currentPlayer + "'s turn.");
 }
