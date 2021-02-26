@@ -111,8 +111,21 @@ function drawBoard() {
     drawTileY += TILE_H;
     var drawTileX = BOARD_X_OFFSET;
     } // end of for each row
+  drawTitle();
 } // end of draw board 
 
 function drawPieces() {
   //
+}
+
+function drawMainTitle() {
+  var canvasWidth = TILE_W * BOARD_COLS;
+  canvasContext.save();
+  canvasContext.textBaseline = "top";
+  canvasContext.font = "20pt Stick";
+  canvasContext.fillStyle = "black";
+  canvasContext.textAlign = "center";
+  console.log(canvasWidth);
+  canvasContext.fillText("Teh Game of UR", canvas.width / 2, 15);
+  canvasContext.restore();
 }
