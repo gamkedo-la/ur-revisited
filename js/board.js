@@ -111,7 +111,7 @@ function drawBoard() {
     drawTileY += TILE_H;
     var drawTileX = BOARD_X_OFFSET;
     } // end of for each row
-  drawTitle();
+  drawMainTitle();
 } // end of draw board 
 
 function drawPieces() {
