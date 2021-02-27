@@ -1,0 +1,31 @@
+button {
+    font-family: Stick, sans-serif;
+}
+
+#debugText {
+    /*font pair for Stick, good for longer blocks of text*/
+    font-family: 'Open Sans', sans-serif;
+}
+
+#container {
+    width: 400px;
+    height: 600px;
+    position: relative;
+}
+
+#gameCanvas {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#howToPlayButton {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    cursor: pointer;
+    inset-block-end: 20px;
+    inset-inline-end: 20px;
+    padding: 5px 10px;
+    position: absolute;
+}
+
