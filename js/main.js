@@ -30,6 +30,7 @@ function drawEverything() {
   canvasContext.drawImage(background_modernWood, 0, 0);
   drawBoard();
   drawPieces();
+  drawInstructionsMenu();
 }
 
 // quick debug function for debugging while working on

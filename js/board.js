@@ -118,12 +118,17 @@ function drawPieces() {
   //
 }
 
+function   drawInstructionsMenu(){
+  if(showInstructionsMenu)
+  {
+    var width = 300;
+    var height = 300;
+  
+    colorRect(canvas.width / 2 - (width/2), canvas.width / 4, width, height , 'rgba(255, 0, 0, 0.8)');
+    drawText(15, 'white', 'center', 'Instructions', canvas.width / 2, canvas.width / 4+3);
+  }
+}
+
 function drawMainTitle() {
-  canvasContext.save();
-  canvasContext.textBaseline = "top";
-  canvasContext.font = "20pt Stick";
-  canvasContext.fillStyle = "black";
-  canvasContext.textAlign = "center";
-  canvasContext.fillText("Teh Game of UR", canvas.width / 2, 15);
-  canvasContext.restore();
+  drawText(20, 'black', 'center', 'The Game of UR', canvas.width / 2, 15);
 }
