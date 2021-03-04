@@ -1,5 +1,6 @@
 var selectedPiece = null;
 var currentPlayer = 1;
+var turnStage = 'roll'; // 'roll' or 'move'
 
 var rollButton = document.createElement("button");
 
@@ -30,15 +31,16 @@ function mouseClickHandler(evt) {
       return;
     } 
 
-    if(clickedIdx == GAME_BOARD.indexOf(ROLL_BUTTON)) {
+    if(clickedIdx == GAME_BOARD.indexOf(ROLL_BUTTON) &&
+        turnStage === 'roll') {
       rollDice();
       //document.getElementById("debugText").innerHTML = 
        // "Clicked Index " + clickedIdx;
     }
 
     if(selectedIdx == -1) {
-      if( (player1PieceIndices.includes(clickedIdx) && currentPlayer == 1 ) || 
-          player2PieceIndices.includes(clickedIdx) && currentPlayer == 2) {
+      if( (player1PieceIndices.includes(clickedIdx) && currentPlayer == 1 && turnStage === 'move') || 
+          player2PieceIndices.includes(clickedIdx) && currentPlayer == 2 && turnStage === 'move') {
 
         selectedIdx = clickedIdx;
         //console.log("selectedIdx", selectedIdx, tileOverCol, tileOverRow);
@@ -78,18 +80,22 @@ function tileCoordToIndex(tileCol, tileRow) {
 function rollDice() {
   let diceRolls = [];
   let diceStartIdx = 72;
+  let rollTotal = 0;
 
   for(var i=0;i<4;i++) {
     let roll = Math.floor(Math.random()*2);
-    console.log("roll", roll);
+    //console.log("roll", roll);
     if( roll == 0 ){
       GAME_BOARD[diceStartIdx + i] = DICE_0;
-    } else {
+    } else { // roll == 1
       GAME_BOARD[diceStartIdx + i] = DICE_1;
+      rollTotal += 1;
     }
     //diceRolls.push(roll);
   }
-  console.log("Dice Rolls: ", diceRolls);
+  //console.log("Dice Rolls: ", diceRolls);
+  turnStage = 'move';
+  debug("Roll Total: "+ rollTotal);
 }
 
 function endPlayerTurn() {
@@ -98,6 +104,9 @@ function endPlayerTurn() {
 	} else {
 		currentPlayer = 1;
 	}
+
+  turnStage = 'roll';
+
 	debug("Player " + currentPlayer + "'s turn.");
 	console.log("Player " + currentPlayer + "'s turn.");
 }
