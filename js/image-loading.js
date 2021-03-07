@@ -35,8 +35,8 @@ function loadImages() {
 		{varName: player1Piece, theFile: "player_1_piece.png"},
 		{varName: player2Piece, theFile: "player_2_piece.png"},
 
-		{varName: dice0, theFile: "ur-dice-0.png"},
-		{varName: dice1, theFile: "ur-dice-1.png"},
+		{varName: dice0, theFile: "ur_dice_0.png"},
+		{varName: dice1, theFile: "ur_dice_1.png"},
 
 		{tileType: TILE_BLANK, theFile: "ur_blank.png"},
 		{tileType: TILE_START, theFile: "ur_blank.png"},
@@ -46,9 +46,9 @@ function loadImages() {
 		{tileType: PLAYER_2_HOME_ROW, theFile: "ur_blank.png"},
 
 		{tileType: ROLL_BUTTON, theFile: "ur_roll.png"},
-		{tileType: DICE_SPOT, theFile: "ur-dice-0.png"},
-		{tileType: DICE_0, theFile: "ur-dice-0.png"},
-		{tileType: DICE_1, theFile: "ur-dice-1.png"},
+		{tileType: DICE_SPOT, theFile: "ur_dice_0.png"},
+		{tileType: DICE_0, theFile: "ur_dice_0.png"},
+		{tileType: DICE_1, theFile: "ur_dice_1.png"},
 
 		// Extra tiles
 		{tileType: TILE_GATE, theFile: "ur_gate.png"},

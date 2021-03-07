@@ -7,18 +7,18 @@ const BOARD_X_OFFSET = 60;
 const BOARD_Y_OFFSET = 60;
 
 const GAME_BOARD = [
-   5,0,0,0,0,0,6,
-   5,0,2,12,2,0,6,
+   5,0, 0, 0, 0,0,6,
+   5,0, 2,12, 2,0,6,
    5,0,15,13,15,0,6,
    5,0,13,14,13,0,6,
-   5,0,15,2,15,0,6,
-   5,0,0,13,0,0,6,
-   5,0,4,14,4,0,6,
-   0,0,2,15,2,0,0,
+   5,0,15, 2,15,0,6,
+   5,0, 0,13, 0,0,6,
+   5,0, 4,14, 4,0,6,
+   0,0, 2,15, 2,0,0,
    0,0,16,13,16,0,0,
-   0,0,0,0,0,0,0,
-   0,8,7,7,7,7,0,
-   0,0,0,0,0,0,0,
+   0,0, 0, 0, 0,0,0,
+   0,8, 7, 7, 7,7,0,
+   0,0, 0, 0, 0,0,0,
 ];
 
 const BOARD_EMPTY_SPACE = 0;
@@ -83,7 +83,7 @@ function drawBoard() {
     var drawTileY = BOARD_Y_OFFSET;
 
     for(var eachRow=0;eachRow<BOARD_ROWS;eachRow++) {
-        for(var eachCol=0;eachCol<BOARD_COLS;eachCol++) {                
+        for(var eachCol=0;eachCol<BOARD_COLS;eachCol++) {                 
                 var tileKindHere = GAME_BOARD[arrayIndex];
                 if(!EMPTY_TILES.includes(tileKindHere)) {
                   var useImg = tilePics[tileKindHere];
@@ -118,12 +118,17 @@ function drawPieces() {
   //
 }
 
+function   drawInstructionsMenu(){
+  if(showInstructionsMenu)
+  {
+    var width = 300;
+    var height = 300;
+  
+    colorRect(canvas.width / 2 - (width/2), canvas.width / 4, width, height , 'rgba(255, 0, 0, 0.8)');
+    drawText(15, 'white', 'center', 'Instructions', canvas.width / 2, canvas.width / 4+3);
+  }
+}
+
 function drawMainTitle() {
-  canvasContext.save();
-  canvasContext.textBaseline = "top";
-  canvasContext.font = "20pt Stick";
-  canvasContext.fillStyle = "black";
-  canvasContext.textAlign = "center";
-  canvasContext.fillText("The Game of UR", canvas.width / 2, 15);
-  canvasContext.restore();
+  drawText(20, 'black', 'center', 'The Game of UR', canvas.width / 2, 15);
 }

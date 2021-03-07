@@ -17,3 +17,13 @@ function drawBitmapCenteredAtLocationWithRotation(graphic, atX, atY,withAngle) {
   canvasContext.drawImage(graphic,-graphic.width/2,-graphic.height/2); // center, draw
   canvasContext.restore(); // undo the translation movement and rotation since save()
 }
+
+function drawText(fontSize, color, textAlign, text, x, y){
+  canvasContext.save();
+  canvasContext.textBaseline = "top";
+  canvasContext.font = fontSize+"pt Stick";
+  canvasContext.fillStyle = color;
+  canvasContext.textAlign = textAlign;
+  canvasContext.fillText(text, x, y);
+  canvasContext.restore();
+}
