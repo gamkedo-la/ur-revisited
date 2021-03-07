@@ -124,6 +124,6 @@ function drawMainTitle() {
   canvasContext.font = "20pt Stick";
   canvasContext.fillStyle = "black";
   canvasContext.textAlign = "center";
-  canvasContext.fillText("Teh Game of UR", canvas.width / 2, 15);
+  canvasContext.fillText("The Game of UR", canvas.width / 2, 15);
   canvasContext.restore();
 }
