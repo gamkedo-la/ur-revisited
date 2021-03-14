@@ -20,44 +20,35 @@ function setupMouseInput() {
 }
 
 function mouseClickHandler(evt) {
+    // find out where the click was
     var mousePos = calculateMousePos(evt);
+    var clickedIdx = boardIdxFromMousePos(mousePos);
 
-    var tileOverCol = Math.floor( (mousePos.x - BOARD_X_OFFSET) / TILE_W);
-    var tileOverRow = Math.floor( (mousePos.y - BOARD_Y_OFFSET) / TILE_H);    
+    var tileKindClicked = GAME_BOARD[clickedIdx];
+  // idea: switch case: what was clicked? (tile type)
+  // better idea if/else for array includes
 
-    clickedIdx = tileCoordToIndex(tileOverCol,tileOverRow);
-
+    // is click on the board?
     if(clickedIdx < 0 || clickedIdx >= GAME_BOARD.length) { // invalid or off board
       return;
     } 
 
-    if(clickedIdx == GAME_BOARD.indexOf(ROLL_BUTTON) &&
-        turnStage === 'roll') {
-      rollDice();
-      //document.getElementById("debugText").innerHTML = 
-       // "Clicked Index " + clickedIdx;
+    // is click on the roll button?
+    if(tileKindClicked === ROLL_BUTTON) {
+        if(turnStage == 'roll') {
+          rollDice();
+        }
     }
 
-    if(selectedIdx == -1) {
-      if( (player1PieceIndices.includes(clickedIdx) && currentPlayer == 1 && turnStage === 'move') || 
-          player2PieceIndices.includes(clickedIdx) && currentPlayer == 2 && turnStage === 'move') {
-
-        selectedIdx = clickedIdx;
-        //console.log("selectedIdx", selectedIdx, tileOverCol, tileOverRow);
+    if(BOARD_TILES.includes(tileKindClicked)) {
+      if(turnStage === 'move') {
+        if(selectedIdx == -1) {
+          tryToSelectPiece(clickedIdx);
+        } else { 
+          tryToMoveSelectedPiece(clickedIdx);
+        }
       }
-    } else { //selectedIdx != -1
-      if(player1PieceIndices.includes(selectedIdx) ) {
-        player1PieceIndices.splice(player1PieceIndices.indexOf(selectedIdx), 1)
-        player1PieceIndices.push(clickedIdx);
-        selectedIdx = -1; // clear selection
-	endPlayerTurn();
-      }
-      if(player2PieceIndices.includes(selectedIdx) ) {
-        player2PieceIndices.splice(player2PieceIndices.indexOf(selectedIdx), 1)
-        player2PieceIndices.push(clickedIdx);
-        selectedIdx = -1; // clear selection
-	endPlayerTurn();
-      }
+      //resolveBoardClick(selectedIdx);
     }
 }
 
@@ -75,6 +66,48 @@ function calculateMousePos(evt) {
 
 function tileCoordToIndex(tileCol, tileRow) {
   return (tileCol + BOARD_COLS*tileRow);
+}
+
+function boardIdxFromMousePos(mousePos) {
+    var tileOverCol = Math.floor( (mousePos.x - BOARD_X_OFFSET) / TILE_W);
+    var tileOverRow = Math.floor( (mousePos.y - BOARD_Y_OFFSET) / TILE_H);    
+
+    return tileCoordToIndex(tileOverCol,tileOverRow);
+}
+
+function tryToSelectPiece(clickedIdx) {
+  if(currentPlayer === 1) {
+    if(player1PieceIndices.includes(clickedIdx) {
+        selectedIdx = clickedIdx;
+    }
+  } else if(currentPlayer === 2) {
+    if(player2PieceIndices.includes(clickedIdx) {
+        selectedIdx = clickedIdx;
+    }
+  }
+}
+
+function tryToMoveSelectedPiece() {
+  if(currentPlayer === 1) {
+    // 
+    if(player1PieceIndices.includes(selectedIdx) {
+        player1PieceIndices.splice(
+          player1PieceIndices.indexOf(selectedIdx), 1
+        );
+        player1PieceIndices.push(clickedIdx);
+        selectedIdx = -1; // clear selection
+        endPlayerTurn();
+    }
+  } else if(currentPlayer === 2) {
+    if(player2PieceIndices.includes(selectedIdx) ) {
+        player2PieceIndices.splice(
+          player2PieceIndices.indexOf(selectedIdx), 1
+        );
+        player2PieceIndices.push(clickedIdx);
+        selectedIdx = -1; // clear selection
+        endPlayerTurn();
+    }
+  }
 }
 
 function rollDice() {
