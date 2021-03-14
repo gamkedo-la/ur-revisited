@@ -33,7 +33,6 @@ const ROLL_BUTTON = 8;
 const DICE_0 = 10;
 const DICE_1 = 11;
 
-// TODO: rm this array
 const EMPTY_TILES = [ TILE_END, BOARD_EMPTY_SPACE ]
 
 // Extra tiles
@@ -50,6 +49,8 @@ const BOARD_TILES = [
   TILE_MARKET,
   TILE_TEMPLE,
   TILE_TREASURY,
+  PLAYER_1_HOME_ROW,
+  PLAYER_2_HOME_ROW,
 ];
 
 var player1PieceIndices = [];

@@ -25,6 +25,7 @@ function mouseClickHandler(evt) {
     var clickedIdx = boardIdxFromMousePos(mousePos);
 
     var tileKindClicked = GAME_BOARD[clickedIdx];
+    //console.log("tile clicked", clickedIdx, tileKindClicked);
   // idea: switch case: what was clicked? (tile type)
   // better idea if/else for array includes
 
@@ -35,12 +36,14 @@ function mouseClickHandler(evt) {
 
     // is click on the roll button?
     if(tileKindClicked === ROLL_BUTTON) {
+      //console.log("clicked roll button");
         if(turnStage == 'roll') {
           rollDice();
         }
     }
 
     if(BOARD_TILES.includes(tileKindClicked)) {
+      //console.log("Clicked a board tile");
       if(turnStage === 'move') {
         if(selectedIdx == -1) {
           tryToSelectPiece(clickedIdx);
@@ -76,6 +79,7 @@ function boardIdxFromMousePos(mousePos) {
 }
 
 function tryToSelectPiece(clickedIdx) {
+  //console.log("trying to select at idx", clickedIdx);
   if(currentPlayer === 1) {
     if(player1PieceIndices.includes(clickedIdx)) {
         selectedIdx = clickedIdx;
@@ -87,7 +91,8 @@ function tryToSelectPiece(clickedIdx) {
   }
 }
 
-function tryToMoveSelectedPiece() {
+function tryToMoveSelectedPiece(clickedIdx) {
+  //console.log("trying to move to idx", clickedIdx);
   if(currentPlayer === 1) {
     // 
     if(player1PieceIndices.includes(selectedIdx)) {
