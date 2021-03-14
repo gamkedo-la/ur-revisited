@@ -96,6 +96,10 @@ function rollDice() {
   //console.log("Dice Rolls: ", diceRolls);
   turnStage = 'move';
   debug("Roll Total: "+ rollTotal);
+  
+  // Play random dice roll sound
+  let diceRollSound = Math.floor(Math.random()*diceRollSounds.length);
+  diceRollSounds[diceRollSound].play();
 }
 
 function endPlayerTurn() {
