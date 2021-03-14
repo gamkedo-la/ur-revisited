@@ -32,8 +32,8 @@ function loadImages() {
 
 	var imageList = [
 		{varName: background_modernWood, theFile: "modern_wood.png"},
-		{varName: player1Piece, theFile: "player_1_piece.png"},
-		{varName: player2Piece, theFile: "player_2_piece.png"},
+		{varName: player1Piece, theFile: "ur_player1_piece.png"},
+		{varName: player2Piece, theFile: "ur_player2_piece.png"},
 
 		{varName: dice0, theFile: "ur_dice_0.png"},
 		{varName: dice1, theFile: "ur_dice_1.png"},
