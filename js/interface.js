@@ -77,11 +77,11 @@ function boardIdxFromMousePos(mousePos) {
 
 function tryToSelectPiece(clickedIdx) {
   if(currentPlayer === 1) {
-    if(player1PieceIndices.includes(clickedIdx) {
+    if(player1PieceIndices.includes(clickedIdx)) {
         selectedIdx = clickedIdx;
     }
   } else if(currentPlayer === 2) {
-    if(player2PieceIndices.includes(clickedIdx) {
+    if(player2PieceIndices.includes(clickedIdx)){
         selectedIdx = clickedIdx;
     }
   }
@@ -90,7 +90,7 @@ function tryToSelectPiece(clickedIdx) {
 function tryToMoveSelectedPiece() {
   if(currentPlayer === 1) {
     // 
-    if(player1PieceIndices.includes(selectedIdx) {
+    if(player1PieceIndices.includes(selectedIdx)) {
         player1PieceIndices.splice(
           player1PieceIndices.indexOf(selectedIdx), 1
         );
