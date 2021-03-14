@@ -81,7 +81,8 @@ function rollDice() {
   let diceRolls = [];
   let diceStartIdx = 72;
   let rollTotal = 0;
-
+  let diceRollSound = 0;
+  
   for(var i=0;i<4;i++) {
     let roll = Math.floor(Math.random()*2);
     //console.log("roll", roll);
@@ -96,6 +97,15 @@ function rollDice() {
   //console.log("Dice Rolls: ", diceRolls);
   turnStage = 'move';
   debug("Roll Total: "+ rollTotal);
+  
+  // Play random dice roll sound  
+  while (diceRollSound == prevDiceRollSound) {
+    diceRollSound = Math.floor(Math.random()*diceRollSounds.length);
+  }
+
+  diceRollSounds[diceRollSound].play();
+  prevDiceRollSound = diceRollSound;
+  console.log("Playing dice roll sound " + diceRollSound);
 }
 
 function endPlayerTurn() {
