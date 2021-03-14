@@ -5,6 +5,7 @@ window.onload = function() {
   canvasContext = canvas.getContext('2d');
     
   loadImages();
+  loadSounds();
 }
 
 function imageLoadingDoneSoStartGame() {
