@@ -100,6 +100,8 @@ function drawBoard() {
                   var useImg = tilePics[tileKindHere];
                   //console.log("useImg", useImg, "tileKindHere", tileKindHere);
                   canvasContext.drawImage(useImg, drawTileX,drawTileY);
+                  // uncomment this line to label tile indecies for debugging
+                  //drawText(12, 'darkblue', 'left', arrayIndex, drawTileX+3, drawTileY+3);
                 }
 
                 // if tile selected, draw box
@@ -112,6 +114,11 @@ function drawBoard() {
                 }
                 if(player2PieceIndices.includes(arrayIndex)) {
                   canvasContext.drawImage(player2Piece, drawTileX,drawTileY);
+                }
+
+                // if the selected piece can move here
+                if(selectedCanMoveToIdx == arrayIndex) {
+                  colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, rgba(0, 255, 0, 0.5));
                 }
                 
                 

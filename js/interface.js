@@ -2,7 +2,7 @@ var selectedPiece = null;
 var currentPlayer = 1;
 var turnStage = 'roll'; // 'roll' or 'move'
 
-var rollButton = document.createElement("button");
+//var rollButton = document.createElement("button");
 
 
 // MouseClick/Touch input Handling Code
@@ -42,6 +42,7 @@ function mouseClickHandler(evt) {
         }
     }
 
+    // is click on a board tile?
     if(BOARD_TILES.includes(tileKindClicked)) {
       //console.log("Clicked a board tile");
       if(turnStage === 'move') {
@@ -83,10 +84,12 @@ function tryToSelectPiece(clickedIdx) {
   if(currentPlayer === 1) {
     if(player1PieceIndices.includes(clickedIdx)) {
         selectedIdx = clickedIdx;
+        selectedCanMoveToIdx = getAvailableMove(clickedIdx)
     }
   } else if(currentPlayer === 2) {
     if(player2PieceIndices.includes(clickedIdx)){
         selectedIdx = clickedIdx;
+        selectedCanMoveToIdx = getAvailableMove(clickedIdx)
     }
   }
 }
@@ -133,6 +136,7 @@ function rollDice() {
     //diceRolls.push(roll);
   }
   //console.log("Dice Rolls: ", diceRolls);
+  playerMovementPoints = rollTotal;
   turnStage = 'move';
   debug("Roll Total: "+ rollTotal);
   
@@ -153,6 +157,7 @@ function endPlayerTurn() {
 		currentPlayer = 1;
 	}
 
+  playerMovementPoints = 0;
   turnStage = 'roll';
 
 	debug("Player " + currentPlayer + "'s turn.");
