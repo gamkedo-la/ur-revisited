@@ -39,7 +39,7 @@ function getAvailablePlayerMoves(playerNum) {
   }
 
   for(var i=0;i<pieceIndexArray.length;i++) {
-    if(playerPath.includes(pieceIndexArray[i]){
+    if(playerPath.includes(pieceIndexArray[i])) {
       movesArray.push({
         startIdx: pieceIndexArray[i],
         endIdx: getAvailableMove(pieceIndexArray[i])

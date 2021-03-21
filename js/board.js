@@ -44,6 +44,7 @@ const TILE_TREASURY = 16;
 
 const BOARD_TILES = [
   TILE_BLANK,
+  TILE_ROSARY,
   TILE_GATE,
   TILE_HOUSE,
   TILE_MARKET,
@@ -108,6 +109,11 @@ function drawBoard() {
                 if(selectedIdx == arrayIndex) {
                   colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'yellow');
                 }
+                // if the selected piece can move here, draw a different box
+                if(selectedCanMoveToIdx == arrayIndex) {
+                  colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'blue');
+                }
+
                 // if a piece is here, draw it too
                 if(player1PieceIndices.includes(arrayIndex)) {
                   canvasContext.drawImage(player1Piece, drawTileX,drawTileY);
@@ -116,10 +122,6 @@ function drawBoard() {
                   canvasContext.drawImage(player2Piece, drawTileX,drawTileY);
                 }
 
-                // if the selected piece can move here
-                if(selectedCanMoveToIdx == arrayIndex) {
-                  colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, rgba(0, 255, 0, 0.5));
-                }
                 
                 
                 drawTileX += TILE_W;

@@ -80,7 +80,7 @@ function boardIdxFromMousePos(mousePos) {
 }
 
 function tryToSelectPiece(clickedIdx) {
-  //console.log("trying to select at idx", clickedIdx);
+  console.log("trying to select at idx", clickedIdx);
   if(currentPlayer === 1) {
     if(player1PieceIndices.includes(clickedIdx)) {
         selectedIdx = clickedIdx;
@@ -95,24 +95,30 @@ function tryToSelectPiece(clickedIdx) {
 }
 
 function tryToMoveSelectedPiece(clickedIdx) {
-  //console.log("trying to move to idx", clickedIdx);
+  console.log("trying to move to idx", clickedIdx);
   if(currentPlayer === 1) {
     // 
-    if(player1PieceIndices.includes(selectedIdx)) {
+    if(player1PieceIndices.includes(selectedIdx) && 
+        selectedCanMoveToIdx == clickedIdx) {
+
         player1PieceIndices.splice(
           player1PieceIndices.indexOf(selectedIdx), 1
         );
         player1PieceIndices.push(clickedIdx);
         selectedIdx = -1; // clear selection
+        selectedCanMoveToIdx = -1; // clear movement marker
         endPlayerTurn();
     }
   } else if(currentPlayer === 2) {
-    if(player2PieceIndices.includes(selectedIdx) ) {
+    if(player2PieceIndices.includes(selectedIdx) &&
+        selectedCanMoveToIdx == clickedIdx) {
+
         player2PieceIndices.splice(
           player2PieceIndices.indexOf(selectedIdx), 1
         );
         player2PieceIndices.push(clickedIdx);
         selectedIdx = -1; // clear selection
+        selectedCanMoveToIdx = -1; // clear movement marker
         endPlayerTurn();
     }
   }
@@ -139,7 +145,7 @@ function rollDice() {
   playerMovementPoints = rollTotal;
   turnStage = 'move';
   debug("Roll Total: "+ rollTotal);
-  
+
   // Play random dice roll sound  
   while (diceRollSound == prevDiceRollSound) {
     diceRollSound = Math.floor(Math.random()*diceRollSounds.length);
@@ -148,6 +154,10 @@ function rollDice() {
   diceRollSounds[diceRollSound].play();
   prevDiceRollSound = diceRollSound;
   console.log("Playing dice roll sound " + diceRollSound);
+
+  if(playerMovementPoints === 0) {
+    endPlayerTurn();
+  }
 }
 
 function endPlayerTurn() {
