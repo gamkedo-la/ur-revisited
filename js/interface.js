@@ -153,7 +153,7 @@ function rollDice() {
 
   diceRollSounds[diceRollSound].play();
   prevDiceRollSound = diceRollSound;
-  console.log("Playing dice roll sound " + diceRollSound);
+  //console.log("Playing dice roll sound " + diceRollSound);
 
   if(playerMovementPoints === 0) {
     endPlayerTurn();
