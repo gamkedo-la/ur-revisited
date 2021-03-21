@@ -112,8 +112,24 @@ function drawBoard() {
                 }
                 if(player2PieceIndices.includes(arrayIndex)) {
                   canvasContext.drawImage(player2Piece, drawTileX,drawTileY);
+                }               
+
+                if (turnStage === 'roll')
+                {
+                  if(tileKindHere === ROLL_BUTTON) {
+                    canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
+                  }
                 }
-                
+
+                if(currentPlayer === 1 && turnStage === 'move') {
+                  if(tileKindHere === PLAYER_1_HOME_ROW) {
+                    canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
+                  }
+                } else if(currentPlayer === 2 && turnStage === 'move') {
+                  if(tileKindHere === PLAYER_2_HOME_ROW) {
+                    canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
+                  }
+                }
                 
                 drawTileX += TILE_W;
                 arrayIndex++;
