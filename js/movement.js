@@ -11,6 +11,9 @@ const PLAYER_2_PATH = [
 var playerMovementPoints = 0;
 var selectedCanMoveToIdx = -1;
 
+var currentPlayerPath = PLAYER_1_PATH;
+var currentPlayerPieceList = []; // initial value set in setupBoard() in js/board.js
+
 
 function getAvailableMove(pieceIdx) {
   if(currentPlayer == 1) {

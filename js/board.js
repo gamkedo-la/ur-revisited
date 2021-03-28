@@ -71,6 +71,7 @@ function setupBoard() {
       player2PieceIndices.push(i);
     }
   }
+  currentPlayerPieceList = player1PieceIndices; // player 1 goes first
 }
 
 function returnTileTypeAtColRow(col,row) {
@@ -110,8 +111,9 @@ function drawBoard() {
                   colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'yellow');
                 }
                 // if the selected piece can move here, draw a different box
-                if(selectedCanMoveToIdx == arrayIndex) {
-                  colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'blue');
+                if(selectedCanMoveToIdx == arrayIndex && 
+                  !currentPlayerPieceList.includes(selectedCanMoveToIdx)) {
+                  colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'lightblue');
                 }
 
                 // if a piece is here, draw it too
@@ -129,11 +131,11 @@ function drawBoard() {
                   }
                 }
 
-                if(currentPlayer === 1 && turnStage === 'move') {
+                if(currentPlayer === 1) {
                   if(tileKindHere === PLAYER_1_HOME_ROW) {
                     canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
                   }
-                } else if(currentPlayer === 2 && turnStage === 'move') {
+                } else if(currentPlayer === 2) {
                   if(tileKindHere === PLAYER_2_HOME_ROW) {
                     canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
                   }

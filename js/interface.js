@@ -2,9 +2,6 @@ var selectedPiece = null;
 var currentPlayer = 1;
 var turnStage = 'roll'; // 'roll' or 'move'
 
-//var rollButton = document.createElement("button");
-
-
 // MouseClick/Touch input Handling Code
   var selectedIdx = -1;
   var clickedIdx = -1;
@@ -46,7 +43,7 @@ function mouseClickHandler(evt) {
     if(BOARD_TILES.includes(tileKindClicked)) {
       //console.log("Clicked a board tile");
       if(turnStage === 'move') {
-        if(selectedIdx == -1) {
+        if(selectedIdx == -1 || currentPlayerPieceList.includes(clickedIdx)) {
           tryToSelectPiece(clickedIdx);
         } else { 
           tryToMoveSelectedPiece(clickedIdx);
@@ -81,46 +78,24 @@ function boardIdxFromMousePos(mousePos) {
 
 function tryToSelectPiece(clickedIdx) {
   console.log("trying to select at idx", clickedIdx);
-  if(currentPlayer === 1) {
-    if(player1PieceIndices.includes(clickedIdx)) {
-        selectedIdx = clickedIdx;
-        selectedCanMoveToIdx = getAvailableMove(clickedIdx)
-    }
-  } else if(currentPlayer === 2) {
-    if(player2PieceIndices.includes(clickedIdx)){
-        selectedIdx = clickedIdx;
-        selectedCanMoveToIdx = getAvailableMove(clickedIdx)
-    }
+  if(currentPlayerPieceList.includes(clickedIdx)) {
+      selectedIdx = clickedIdx;
+      selectedCanMoveToIdx = getAvailableMove(clickedIdx)
   }
 }
 
 function tryToMoveSelectedPiece(clickedIdx) {
   console.log("trying to move to idx", clickedIdx);
-  if(currentPlayer === 1) {
-    // 
-    if(player1PieceIndices.includes(selectedIdx) && 
-        selectedCanMoveToIdx == clickedIdx) {
-
-        player1PieceIndices.splice(
-          player1PieceIndices.indexOf(selectedIdx), 1
+  if(currentPlayerPieceList.includes(selectedIdx) && 
+    selectedCanMoveToIdx == clickedIdx) {
+    //
+        currentPlayerPieceList.splice(
+          currentPlayerPieceList.indexOf(selectedIdx), 1
         );
-        player1PieceIndices.push(clickedIdx);
+        currentPlayerPieceList.push(clickedIdx);
         selectedIdx = -1; // clear selection
         selectedCanMoveToIdx = -1; // clear movement marker
         endPlayerTurn();
-    }
-  } else if(currentPlayer === 2) {
-    if(player2PieceIndices.includes(selectedIdx) &&
-        selectedCanMoveToIdx == clickedIdx) {
-
-        player2PieceIndices.splice(
-          player2PieceIndices.indexOf(selectedIdx), 1
-        );
-        player2PieceIndices.push(clickedIdx);
-        selectedIdx = -1; // clear selection
-        selectedCanMoveToIdx = -1; // clear movement marker
-        endPlayerTurn();
-    }
   }
 }
 
@@ -163,8 +138,12 @@ function rollDice() {
 function endPlayerTurn() {
 	if(currentPlayer === 1) {
 		currentPlayer = 2;
+                currentPlayerPath = PLAYER_2_PATH;
+                currentPlayerPieceList = player2PieceIndices;
 	} else {
 		currentPlayer = 1;
+                currentPlayerPath = PLAYER_1_PATH;
+                currentPlayerPieceList = player1PieceIndices;
 	}
 
   playerMovementPoints = 0;
