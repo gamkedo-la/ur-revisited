@@ -28,7 +28,8 @@ function moveEverything() {
 function drawEverything() {
   // draw background
   //colorRect(0, 0, canvas.width, canvas.height, 'tan');
-  canvasContext.drawImage(background_modernWood, 0, 0);
+  //canvasContext.drawImage(background_modernWood, 0, 0);
+  canvasContext.drawImage(background_sandStone, 0, 0);
   drawBoard();
   drawPieces();
   drawInstructionsMenu();

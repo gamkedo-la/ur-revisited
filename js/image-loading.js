@@ -1,4 +1,5 @@
 var background_modernWood = document.createElement("img");
+var background_sandStone = document.createElement("img");
 var player1Piece = document.createElement("img");
 var player2Piece = document.createElement("img");
 var highlight_green = document.createElement("img");
@@ -33,6 +34,7 @@ function loadImages() {
 
 	var imageList = [
 		{varName: background_modernWood, theFile: "modern_wood.png"},
+		{varName: background_sandStone, theFile: "sand_stone.png"},
 		{varName: player1Piece, theFile: "ur_player1_piece.png"},
 		{varName: player2Piece, theFile: "ur_player2_piece.png"},
 		{varName: highlight_green, theFile: "ur_highlight_green.png"},
