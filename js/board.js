@@ -155,14 +155,10 @@ function drawPieces() {
   //
 }
 
-function   drawInstructionsMenu(){
+function drawInstructionsMenu(){
   if(showInstructionsMenu)
   {
-    var width = 300;
-    var height = 300;
-  
-    colorRect(canvas.width / 2 - (width/2), canvas.width / 4, width, height , 'rgba(255, 0, 0, 0.8)');
-    drawText(15, 'white', 'center', 'Instructions', canvas.width / 2, canvas.width / 4+3);
+    canvasContext.drawImage(help_screen, 0,0);
   }
 }
 

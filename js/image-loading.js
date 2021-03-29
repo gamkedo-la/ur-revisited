@@ -7,6 +7,8 @@ var highlight_green = document.createElement("img");
 var dice0 = document.createElement("img");
 var dice1 = document.createElement("img");
 
+var help_screen = document.createElement("img");
+
 var tilePics = [];
 
 var picsToLoad = 0; //set automatically based on number of imageList in loadImages()
@@ -60,6 +62,9 @@ function loadImages() {
 		{tileType: TILE_MARKET, theFile: "ur_market.png"},
 		{tileType: TILE_TEMPLE, theFile: "ur_temple.png"},
 		{tileType: TILE_TREASURY, theFile: "ur_treasury.png"},
+
+		// Help 
+		{varName: help_screen, theFile: "help_screen.png"},
 
 		//{tileType: BOARD_EMPTY_SPACE, 
       //theFile: "transparent_block.png"},
