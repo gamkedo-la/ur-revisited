@@ -93,9 +93,38 @@ function tryToMoveSelectedPiece(clickedIdx) {
           currentPlayerPieceList.indexOf(selectedIdx), 1
         );
         currentPlayerPieceList.push(clickedIdx);
+        checkIfOpponentPieceExist(clickedIdx);
         selectedIdx = -1; // clear selection
         selectedCanMoveToIdx = -1; // clear movement marker
         endPlayerTurn();
+  }
+}
+
+function checkIfOpponentPieceExist(clickedIdx){
+  if(opponentPlayerPieceList.includes(clickedIdx)){
+    
+    // Remove it:
+    opponentPlayerPieceList.splice(
+      opponentPlayerPieceList.indexOf(clickedIdx), 1
+    );
+
+    // Return it to an empty player slot:
+    if(currentPlayer==1){
+      for(var i of player2HomePieceIndices){
+        if(opponentPlayerPieceList.includes(i)==false){
+          opponentPlayerPieceList.push(i);
+          break;
+        }
+      }
+    }
+    else{
+      for(var i of player1HomePieceIndices){
+        if(opponentPlayerPieceList.includes(i)==false){
+          opponentPlayerPieceList.push(i);
+          break;
+        }
+      }
+    }
   }
 }
 
@@ -140,10 +169,12 @@ function endPlayerTurn() {
 		currentPlayer = 2;
                 currentPlayerPath = PLAYER_2_PATH;
                 currentPlayerPieceList = player2PieceIndices;
+                opponentPlayerPieceList = player1PieceIndices;
 	} else {
 		currentPlayer = 1;
                 currentPlayerPath = PLAYER_1_PATH;
                 currentPlayerPieceList = player1PieceIndices;
+                opponentPlayerPieceList = player2PieceIndices;
 	}
 
   playerMovementPoints = 0;

@@ -54,6 +54,8 @@ const BOARD_TILES = [
   PLAYER_2_HOME_ROW,
 ];
 
+var player1HomePieceIndices = [];
+var player2HomePieceIndices = [];
 var player1PieceIndices = [];
 var player2PieceIndices = [];
 
@@ -61,14 +63,18 @@ function setupBoard() {
   //clear the board
   player1PieceIndices = [];
   player2PieceIndices = [];
+  player1HomePieceIndices = [];
+  player2HomePieceIndices = [];
 
   // add player pieces to home rows
   for(var i=0;i<GAME_BOARD.length;i++) {
     if(GAME_BOARD[i] == PLAYER_1_HOME_ROW) {
       player1PieceIndices.push(i);
+      player1HomePieceIndices.push(i);
     }
     if(GAME_BOARD[i] == PLAYER_2_HOME_ROW) {
       player2PieceIndices.push(i);
+      player2HomePieceIndices.push(i);
     }
   }
   currentPlayerPieceList = player1PieceIndices; // player 1 goes first

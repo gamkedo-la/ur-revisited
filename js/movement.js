@@ -13,6 +13,7 @@ var selectedCanMoveToIdx = -1;
 
 var currentPlayerPath = PLAYER_1_PATH;
 var currentPlayerPieceList = []; // initial value set in setupBoard() in js/board.js
+var opponentPlayerPieceList = [];
 
 
 function getAvailableMove(pieceIdx) {
