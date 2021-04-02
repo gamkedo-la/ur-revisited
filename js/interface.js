@@ -89,6 +89,14 @@ function tryToMoveSelectedPiece(clickedIdx) {
   if(currentPlayerPieceList.includes(selectedIdx) && 
     selectedCanMoveToIdx == clickedIdx) {
     //
+        if(opponentPlayerPieceList.includes(clickedIdx) &&
+          clickedIdx == 31) {
+
+          console.log("opponent's piece on central rosary");
+          // abort movement
+          return;
+          
+        }
         currentPlayerPieceList.splice(
           currentPlayerPieceList.indexOf(selectedIdx), 1
         );
