@@ -178,6 +178,7 @@ function drawInstructionsMenu(){
   if(showInstructionsMenu)
   {
     canvasContext.drawImage(help_screen, 0,0);
+    backgroundSelect.style.display = 'none';
   }
 }
 
