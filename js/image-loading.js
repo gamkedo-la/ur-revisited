@@ -1,3 +1,4 @@
+var backgroundSelect = document.getElementById("backgroundSelect");
 var background_modernWood = document.createElement("img");
 var background_sandStone = document.createElement("img");
 var player1Piece = document.createElement("img");
@@ -9,10 +10,11 @@ var dice1 = document.createElement("img");
 
 var help_screen = document.createElement("img");
 
+var pause_background = document.createElement("img");
+
 var tilePics = [];
 
 var picsToLoad = 0; //set automatically based on number of imageList in loadImages()
-
 
 function countLoadedImagesAndLaunchIfReady() {
 	picsToLoad--;
@@ -65,6 +67,9 @@ function loadImages() {
 
 		// Help 
 		{varName: help_screen, theFile: "help_screen.png"},
+
+		// Pause
+		{varName: pause_background, theFile: "pause_background.png"},
 
 		//{tileType: BOARD_EMPTY_SPACE, 
       //theFile: "transparent_block.png"},

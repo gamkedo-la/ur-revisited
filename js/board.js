@@ -95,6 +95,19 @@ function rowColToArrayIndex(col, row) {
         return col + BOARD_COLS * row;
 }
 
+function drawBackground() {
+  console.log(backgroundSelect.value);
+  switch(backgroundSelect.value) {
+    case 'sandStone':
+      canvasContext.drawImage(background_sandStone, 0, 0);
+      break;
+    case 'modernWood':
+      canvasContext.drawImage(background_modernWood, 0, 0);
+      break;
+    default:
+  }
+}
+
 function drawBoard() {
   //console.log("called drawBoard");
     var arrayIndex = 0;
@@ -165,6 +178,20 @@ function drawInstructionsMenu(){
   if(showInstructionsMenu)
   {
     canvasContext.drawImage(help_screen, 0,0);
+  }
+}
+
+function drawPauseMenu(){
+  if(gamePaused)
+  {
+    canvasContext.drawImage(pause_background, 0,0);
+    backgroundSelect.style.display = 'block';
+    drawText(24, 'white', 'center', 'PAUSED', canvas.width / 2, 150);
+    drawText(18, 'white', 'center', 'Background', 125, canvas.height / 2);
+  }
+  else
+  {
+    backgroundSelect.style.display = 'none';
   }
 }
 
