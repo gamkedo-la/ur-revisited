@@ -1,6 +1,7 @@
 var diceRoll1 = new Audio("sounds/dice_roll_1.wav");
 var diceRoll2 = new Audio("sounds/dice_roll_2.wav");
 var diceRoll3 = new Audio("sounds/dice_roll_3.wav");
+var pieceMovementSFX = new Audio("sounds/movement.wav");
 
 var prevDiceRollSound = 0;
 
@@ -11,4 +12,7 @@ function loadSounds() {
 		diceRollSounds[i].volume = .25;
 		diceRollSounds[i].load();
 	}
+	pieceMovementSFX.volume = .25;
+	pieceMovementSFX.load();
+
 }

@@ -106,6 +106,7 @@ function tryToMoveSelectedPiece(clickedIdx) {
         selectedIdx = -1; // clear selection
         selectedCanMoveToIdx = -1; // clear movement marker
         endPlayerTurn();
+        pieceMovementSFX.play(); // play movement SFX
   }
 }
 
