@@ -96,7 +96,7 @@ function rowColToArrayIndex(col, row) {
 }
 
 function drawBackground() {
-  console.log(backgroundSelect.value);
+  //console.log(backgroundSelect.value);
   switch(backgroundSelect.value) {
     case 'sandStone':
       canvasContext.drawImage(background_sandStone, 0, 0);

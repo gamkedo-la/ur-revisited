@@ -1,4 +1,3 @@
-var selectedPiece = null;
 var currentPlayer = 1;
 var turnStage = 'roll'; // 'roll' or 'move'
 
@@ -105,8 +104,16 @@ function tryToMoveSelectedPiece(clickedIdx) {
         checkIfOpponentPieceExist(clickedIdx);
         selectedIdx = -1; // clear selection
         selectedCanMoveToIdx = -1; // clear movement marker
-        endPlayerTurn();
         pieceMovementSFX.play(); // play movement SFX
+
+        if(GAME_BOARD[clickedIdx] == TILE_ROSARY) {
+            // player gets to roll again
+            console.log("rosary hit");
+            turnStage = 'roll';
+            playerMovementPoints = 0;
+        } else {
+            endPlayerTurn();
+        }
   }
 }
 
