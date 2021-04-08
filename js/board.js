@@ -206,6 +206,17 @@ function drawPauseMenu(){
   }
 }
 
+function drawMainMenu() {
+  if(showMainMenu) 
+  {
+    drawBackground();
+    drawMainTitle(); 
+    menuButtonsDiv.style.display = 'block';
+  } else {
+    menuButtonsDiv.style.display = 'none';
+  }
+}
+
 function drawMainTitle() {
   drawText(20, 'black', 'center', 'The Game of UR', canvas.width / 2, 15);
 }

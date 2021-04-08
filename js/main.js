@@ -36,6 +36,7 @@ function drawEverything() {
   drawCreditsMenu()
   drawPauseMenu();
   drawInstructionsMenu();
+  drawMainMenu();
   
 }
 
