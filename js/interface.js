@@ -24,7 +24,7 @@ function mouseClickHandler(evt) {
     //console.log("tile clicked", clickedIdx, tileKindClicked);
   // idea: switch case: what was clicked? (tile type)
   // better idea if/else for array includes
-  if (!gamePaused) {
+  if (!gamePaused && !showCredits && !showInstructionsMenu) {
     // is click on the board?
     if(clickedIdx < 0 || clickedIdx >= GAME_BOARD.length) { // invalid or off board
       return;

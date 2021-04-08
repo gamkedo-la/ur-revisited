@@ -18,6 +18,18 @@ button {
     min-height: 100%;
 }
 
+#creditsButton {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    cursor: pointer;
+    inset-block-end: 20px;
+    inset-inline-end: 20px;
+    left: 16px;
+    padding: 5px 10px;
+    position: absolute;
+}
+
 #howToPlayButton {
     background-color: #f44336;
     border: none;

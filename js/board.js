@@ -175,11 +175,20 @@ function drawPieces() {
   //
 }
 
+function drawCreditsMenu(){
+  if(showCredits)
+  {
+    //@todo: insert actual credits
+    canvasContext.drawImage(pause_background, 0,0);
+    drawText(24, 'white', 'center', 'CREDITS', canvas.width / 2, 80);
+    backgroundSelect.style.display = 'none';
+  }
+}
+
 function drawInstructionsMenu(){
   if(showInstructionsMenu)
   {
     canvasContext.drawImage(help_screen, 0,0);
-    backgroundSelect.style.display = 'none';
   }
 }
 
