@@ -111,6 +111,12 @@ function tryToMoveSelectedPiece(clickedIdx) {
             console.log("rosary hit");
             turnStage = 'roll';
             playerMovementPoints = 0;
+        } else if(GAME_BOARD[clickedIdx] == TILE_END) {
+            currentPlayerPieceList.splice(
+              currentPlayerPieceList.indexOf(clickedIdx), 1
+            );
+            checkForGameEnd();
+            endPlayerTurn();
         } else {
             endPlayerTurn();
         }
@@ -179,6 +185,10 @@ function rollDice() {
   if(playerMovementPoints === 0) {
     endPlayerTurn();
   }
+}
+
+function checkForGameEnd() {
+  console.log("check for game end");
 }
 
 function endPlayerTurn() {

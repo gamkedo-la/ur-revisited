@@ -52,6 +52,7 @@ const BOARD_TILES = [
   TILE_TREASURY,
   PLAYER_1_HOME_ROW,
   PLAYER_2_HOME_ROW,
+  TILE_END,
 ];
 
 var player1HomePieceIndices = [];
