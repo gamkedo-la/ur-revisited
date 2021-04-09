@@ -1,7 +1,7 @@
 var diceRoll1 = new Audio("sounds/dice_roll_1.wav");
 var diceRoll2 = new Audio("sounds/dice_roll_2.wav");
 var diceRoll3 = new Audio("sounds/dice_roll_3.wav");
-var pieceMovementSFX = new Audio("sounds/movement.wav");
+var pieceMovementSFX = new Audio("sounds/move/moveSFX4.wav");
 
 var prevDiceRollSound = 0;
 
