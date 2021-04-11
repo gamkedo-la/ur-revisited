@@ -81,6 +81,7 @@ function tryToSelectPiece(clickedIdx) {
   if(currentPlayerPieceList.includes(clickedIdx)) {
       selectedIdx = clickedIdx;
       selectedCanMoveToIdx = getAvailableMove(clickedIdx)
+      pieceSelectSFX.play();
   }
 }
 
