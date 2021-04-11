@@ -5,4 +5,5 @@ creditsButton.addEventListener("click", handleCreditsButtonClick);
 
 function handleCreditsButtonClick() {
     showCredits =! showCredits;
+    showMainMenu = false;
 }

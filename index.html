@@ -13,14 +13,16 @@
         <div id="container">
             <canvas id="gameCanvas" width="400" height="600"></canvas>
             <button id="pauseButton">I I</button>
+            <div id="menuButtonsDiv">
+                <button id="playButton">Play</button>
+                <button id="creditsButton">Credits</button>
+                <button id="howToPlayButton">How To Play</button>
+            </div> 
             <select id="backgroundSelect">
                 <option value="modernWood" selected>Wood</option>
                 <option value="sandStone">Sandstone</option>
             </select>
-            <div id="menuButtonsDiv">
-                <button id="creditsButton">Credits</button>
-                <button id="howToPlayButton">How To Play</button>
-            </div> 
+            <button id="backToMenuButton">Back To Menu</button>
         </div>
         <p id="debugText"> </p>
         <script src="js/graphics-common.js"></script>
@@ -30,6 +32,7 @@
         <script src="js/board.js"></script>
         <script src="js/interface.js"></script>
         <script src="js/creditsMenu.js"></script>
+        <script src="js/mainMenu.js"></script>
         <script src="js/howToPlay.js"></script>
         <script src="js/pauseMenu.js"></script>
         <script src="js/main.js"></script>

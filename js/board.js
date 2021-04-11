@@ -131,9 +131,15 @@ function drawBoard() {
                   colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'yellow');
                 }
                 // if the selected piece can move here, draw a different box
-                if(selectedCanMoveToIdx == arrayIndex && 
-                  !currentPlayerPieceList.includes(selectedCanMoveToIdx)) {
-                  colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'lightblue');
+                if(selectedCanMoveToIdx == arrayIndex) {
+                    if(!currentPlayerPieceList.includes(selectedCanMoveToIdx) && 
+                      !(selectedCanMoveToIdx == 31 && opponentPlayerPieceList.includes(31))) {
+                // player has no piece at dest & dest is not center rosary with opponent piece
+                      colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'lightblue');
+                    } else {
+                      // player cannot move here
+                      colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, '#ff6565');
+                    }
                 }
 
                 // if a piece is here, draw it too
@@ -214,6 +220,14 @@ function drawMainMenu() {
     menuButtonsDiv.style.display = 'block';
   } else {
     menuButtonsDiv.style.display = 'none';
+  }
+}
+
+function drawBackToMenuButton() {
+  if(!showMainMenu && (showCredits || showInstructionsMenu)) {
+    backToMenuButton.style.display = 'block';
+  } else {
+    backToMenuButton.style.display = 'none';
   }
 }
 

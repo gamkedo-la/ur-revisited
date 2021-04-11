@@ -33,10 +33,11 @@ function drawEverything() {
   drawBackground();
   drawBoard();
   drawPieces();
-  drawCreditsMenu()
   drawPauseMenu();
-  drawInstructionsMenu();
   drawMainMenu();
+  drawCreditsMenu()
+  drawInstructionsMenu();
+  drawBackToMenuButton();
   
 }
 
