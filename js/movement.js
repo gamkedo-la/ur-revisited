@@ -30,24 +30,21 @@ function getAvailableMove(pieceIdx) {
 
 // move to AI file?
 function getAvailablePlayerMoves(playerNum) {
-  var pieceIndexArray = [];
-  var playerPath = [];
   var movesArray = [];
 
-  if(playerNum == 1) {
-    pieceIndexArray = player1PieceIndices;
-    playerPath = PLAYER_1_PATH;
-  } else {
-    pieceIndexArray = player2PieceIndices;
-    playerPath = PLAYER_2_PATH;
-  }
+    // for each piece in current player's list
+  for(var i=0;i<currentPlayerPieceList.length;i++) {
+      // if this piece won't land on another friendly piece when moved...
+    if(!currentPlayerPieceList.includes(getAvailableMove(currentPlayerPieceList[i]))
+        // and it will not land on an occupied center rosary piece
+      && !(currentPlayerPieceList[i] == 31 && opponentPlayerPieceList.includes(31)) 
+        // and endIdx will still be on the board
+      && typeof(getAvailableMove(currentPlayerPieceList[i])) != "undefined" ) {
 
-  for(var i=0;i<pieceIndexArray.length;i++) {
-    if(playerPath.includes(pieceIndexArray[i])) {
-      movesArray.push({
-        startIdx: pieceIndexArray[i],
-        endIdx: getAvailableMove(pieceIndexArray[i])
-      });
+        movesArray.push({
+          startIdx: currentPlayerPieceList[i],
+          endIdx: getAvailableMove(currentPlayerPieceList[i])
+        });
     }
   }
   return movesArray;

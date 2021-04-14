@@ -186,6 +186,10 @@ function rollDice() {
   if(playerMovementPoints === 0) {
     endPlayerTurn();
   }
+
+  if(getAvailablePlayerMoves(currentPlayer).length < 1) {
+    endPlayerTurn();
+  }
 }
 
 function checkForGameEnd() {
