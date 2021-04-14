@@ -105,6 +105,21 @@ function drawBackground() {
     case 'modernWood':
       canvasContext.drawImage(background_modernWood, 0, 0);
       break;
+    case 'rockTiles':
+      canvasContext.drawImage(background_rocks, 0, 0);
+      break;
+    case 'whiteWash':
+      canvasContext.drawImage(background_whitewash, 0, 0);
+      break;
+    case 'grayMarble':
+      canvasContext.drawImage(background_grayMarble, 0, 0);
+      break;
+    case 'silicate':
+      canvasContext.drawImage(background_silicate, 0, 0);
+      break;
+    case 'woodTile':
+      canvasContext.drawImage(background_woodTile, 0, 0);
+      break;
     default:
   }
 }
