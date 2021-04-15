@@ -194,6 +194,9 @@ function rollDice() {
 
 function checkForGameEnd() {
   console.log("check for game end");
+  if(currentPlayerPieceList.length === 0) {
+    console.log("Player "+ currentPlayer +" wins!");
+  }
 }
 
 function endPlayerTurn() {
