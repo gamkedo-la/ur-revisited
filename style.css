@@ -66,6 +66,7 @@ button {
     left: 16px;
     padding: 3px 7px;
     font-size: 18px;
+    display: none;
 }
 
 #backgroundSelect {
@@ -78,5 +79,6 @@ button {
     left: 200px;
     padding: 3px 7px;
     font-size: 18px;
+    display: none;
 }
 

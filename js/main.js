@@ -34,11 +34,11 @@ function drawEverything() {
   drawBoard();
   drawPieces();
   drawPauseMenu();
+  drawPauseButton();
   drawMainMenu();
   drawCreditsMenu()
   drawInstructionsMenu();
   drawBackToMenuButton();
-  
 }
 
 // quick debug function for debugging while working on

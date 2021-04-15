@@ -1,6 +1,7 @@
 var backgroundSelect = document.getElementById("backgroundSelect");
 var menuButtons = document.getElementById("menuButtonsDiv");
 
+var pauseButton = document.getElementById("pauseButton");
 
 var background_modernWood = document.createElement("img");
 var background_sandStone = document.createElement("img");

@@ -220,10 +220,20 @@ function drawPauseMenu(){
     backgroundSelect.style.display = 'block';
     drawText(24, 'white', 'center', 'PAUSED', canvas.width / 2, 150);
     drawText(18, 'white', 'center', 'Background', 125, canvas.height / 2);
+    backgroundSelect.style.display = "block";
   }
   else
   {
     backgroundSelect.style.display = 'none';
+  }
+}
+
+function drawPauseButton() {
+  if(roundStarted)
+  {
+    pauseButton.style.display = "block";
+  } else {
+    pauseButton.style.display = "none";
   }
 }
 
