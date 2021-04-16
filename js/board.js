@@ -210,6 +210,14 @@ function drawCreditsMenu(){
     //@todo: insert actual credits
     canvasContext.drawImage(pause_background, 0,0);
     drawText(24, 'white', 'center', 'CREDITS', canvas.width / 2, 80);
+
+    var leftX = 14;
+    var topY = 140;
+    var skipY = 18;
+    for(let i=0; i<creditsList.length; i++) {
+      drawText(11, 'white', 'left', creditsList[i], leftX, topY+i*skipY);
+    }
+
     backgroundSelect.style.display = 'none';
   }
 }
