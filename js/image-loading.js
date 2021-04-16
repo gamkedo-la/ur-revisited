@@ -13,6 +13,8 @@ var background_woodTile = document.createElement("img");
 var player1Piece = document.createElement("img");
 var player2Piece = document.createElement("img");
 var highlight_green = document.createElement("img");
+var highlight_dk_red = document.createElement("img");
+var highlight_dk_blue = document.createElement("img");
 
 var dice0 = document.createElement("img");
 var dice1 = document.createElement("img");
@@ -55,7 +57,10 @@ function loadImages() {
 		{varName: background_woodTile, theFile: "bacgkround_woodTile.png"},
 		{varName: player1Piece, theFile: "ur_player1_piece.png"},
 		{varName: player2Piece, theFile: "ur_player2_piece.png"},
+
 		{varName: highlight_green, theFile: "ur_highlight_green.png"},
+		{varName: highlight_dk_red, theFile: "ur_highlight_dk_red.png"},
+		{varName: highlight_dk_blue, theFile: "ur_highlight_dk_blue.png"},
 
 		{varName: dice0, theFile: "ur_dice_0.png"},
 		{varName: dice1, theFile: "ur_dice_1.png"},

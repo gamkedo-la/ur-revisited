@@ -168,17 +168,21 @@ function drawBoard() {
                 if (turnStage === 'roll')
                 {
                   if(tileKindHere === ROLL_BUTTON) {
-                    canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
+                    if(currentPlayer === 1) {
+                      canvasContext.drawImage(highlight_dk_red, drawTileX,drawTileY);
+                    } else { // currentPlayer === 2
+                      canvasContext.drawImage(highlight_dk_blue, drawTileX,drawTileY);
+                    }
                   }
                 }
 
                 if(currentPlayer === 1) {
                   if(tileKindHere === PLAYER_1_HOME_ROW) {
-                    canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
+                    canvasContext.drawImage(highlight_dk_red, drawTileX,drawTileY);
                   }
                 } else if(currentPlayer === 2) {
                   if(tileKindHere === PLAYER_2_HOME_ROW) {
-                    canvasContext.drawImage(highlight_green, drawTileX,drawTileY);
+                    canvasContext.drawImage(highlight_dk_blue, drawTileX,drawTileY);
                   }
                 }
                 
