@@ -16,8 +16,12 @@ var highlight_green = document.createElement("img");
 var highlight_dk_red = document.createElement("img");
 var highlight_dk_blue = document.createElement("img");
 
-var dice0 = document.createElement("img");
-var dice1 = document.createElement("img");
+var dice0_0 = document.createElement("img");
+var dice0_1 = document.createElement("img");
+var dice0_2 = document.createElement("img");
+var dice1_0 = document.createElement("img");
+var dice1_1 = document.createElement("img");
+var dice1_2 = document.createElement("img");
 
 var help_screen = document.createElement("img");
 
@@ -62,8 +66,12 @@ function loadImages() {
 		{varName: highlight_dk_red, theFile: "ur_highlight_dk_red.png"},
 		{varName: highlight_dk_blue, theFile: "ur_highlight_dk_blue.png"},
 
-		{varName: dice0, theFile: "ur_dice_0.png"},
-		{varName: dice1, theFile: "ur_dice_1.png"},
+		{varName: dice0_0, theFile: "ur_dice_0.png"},
+		{varName: dice0_1, theFile: "ur_dice_0_alternate1.png"},
+		{varName: dice0_2, theFile: "ur_dice_0_alternate2.png"},
+		{varName: dice1_0, theFile: "ur_dice_1.png"},
+		{varName: dice1_1, theFile: "ur_dice_1_alternate1.png"},
+		{varName: dice1_2, theFile: "ur_dice_1_alternate2.png"},
 
 		{tileType: TILE_BLANK, theFile: "ur_blank.png"},
 		{tileType: TILE_START, theFile: "ur_blank.png"},
@@ -74,8 +82,12 @@ function loadImages() {
 
 		{tileType: ROLL_BUTTON, theFile: "ur_roll.png"},
 		{tileType: DICE_SPOT, theFile: "ur_dice_0.png"},
-		{tileType: DICE_0, theFile: "ur_dice_0.png"},
-		{tileType: DICE_1, theFile: "ur_dice_1.png"},
+		{tileType: DICE_0_0, theFile: "ur_dice_0.png"},
+		{tileType: DICE_0_1, theFile: "ur_dice_0_alternate1.png"},
+		{tileType: DICE_0_2, theFile: "ur_dice_0_alternate2.png"},
+		{tileType: DICE_1_0, theFile: "ur_dice_1.png"},
+		{tileType: DICE_1_1, theFile: "ur_dice_1_alternate1.png"},
+		{tileType: DICE_1_2, theFile: "ur_dice_1_alternate2.png"},
 
 		// Extra tiles
 		{tileType: TILE_GATE, theFile: "ur_gate.png"},

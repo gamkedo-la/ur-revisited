@@ -30,8 +30,12 @@ const PLAYER_1_HOME_ROW = 5;
 const PLAYER_2_HOME_ROW = 6;
 const DICE_SPOT = 7;
 const ROLL_BUTTON = 8;
-const DICE_0 = 10;
-const DICE_1 = 11;
+const DICE_0_0 = 10;
+const DICE_0_1 = 17;
+const DICE_0_2 = 18;
+const DICE_1_0 = 11;
+const DICE_1_1 = 19;
+const DICE_1_2 = 20;
 
 const EMPTY_TILES = [ TILE_END, BOARD_EMPTY_SPACE ]
 

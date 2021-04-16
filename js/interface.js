@@ -157,14 +157,17 @@ function rollDice() {
   let diceStartIdx = 72;
   let rollTotal = 0;
   let diceRollSound = 0;
+  let dice_0_values = [10, 17, 18];
+  let dice_1_values = [11, 19, 20];
   
   for(var i=0;i<4;i++) {
     let roll = Math.floor(Math.random()*2);
+    let diceImgIdx = Math.floor(Math.random()*3); 
     //console.log("roll", roll);
     if( roll == 0 ){
-      GAME_BOARD[diceStartIdx + i] = DICE_0;
+      GAME_BOARD[diceStartIdx + i] = dice_0_values[diceImgIdx];
     } else { // roll == 1
-      GAME_BOARD[diceStartIdx + i] = DICE_1;
+      GAME_BOARD[diceStartIdx + i] = dice_1_values[diceImgIdx];
       rollTotal += 1;
     }
     //diceRolls.push(roll);
