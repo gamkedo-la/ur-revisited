@@ -9,8 +9,8 @@ function handleCreditsButtonClick() {
 }
 
 let creditsList = [
-"Jonathan Peterson: Project lead, core gameplay, input refactor, turns system, piece selection and movement, rosary tile logic, main menu structure, end of game, instructions screen design",
-"Philip Greene: Tile art (rosary/rosette, house, gate, market, temple, treasury), wood background, tile loading, dice art with variations, piece art, sound loading, dice roll sounds, highlights, sandstone texture, pause background fade, pause menu, background selector",
+"Jonathan Peterson: Project lead, core gameplay, input refactor, turns system, piece selection and movement, rosary tile logic, main menu structure, end of game, instructions screen design, music and sound effects toggle buttons",
+"Philip Greene: Tile art (rosary/rosette, house, gate, market, temple, treasury), wood background, tile loading, dice art with variations, piece art, sound loading, dice roll sounds, highlights, sandstone texture, pause background fade, pause menu, background selector, music loop & music pause implementation,",
 "Rami Bukhari: Sound effects (piece selection, piece move), piece knockback when landed on, how to play overlay support, instructions screen implementation",
 "Ryan Cahela: Font selection and integration, menu title, bit of code cleanup",
 "Alan Zaring: Gameplay music",
