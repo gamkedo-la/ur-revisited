@@ -212,7 +212,7 @@ function drawCreditsMenu(){
     drawText(24, 'white', 'center', 'CREDITS', canvas.width / 2, 80);
 
     var leftX = 14;
-    var topY = 140;
+    var topY = 135;
     var skipY = 18;
     for(let i=0; i<creditsList.length; i++) {
       drawText(11, 'white', 'left', creditsList[i], leftX, topY+i*skipY);

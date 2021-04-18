@@ -16,7 +16,7 @@ let creditsList = [
 "Alan Zaring: Gameplay music",
 "Filipe Dottori: 5 background variations, bug fix during how to play menu, credits screen hookup",
 "George Carter: Removed pause from menu screen",
-"Chris DeLeon: Compiled credits"," ",
+"Chris DeLeon: Compiled credits, centered game view"," ",
 "Created by members in HomeTeamGameDev Outpost"];
 let creditsMaxCharWidthToWrap = 54;
 

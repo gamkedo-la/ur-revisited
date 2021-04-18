@@ -2,6 +2,11 @@ button {
     font-family: Stick, sans-serif;
 }
 
+body {
+    background-color: #111111;
+    margin: 0px;
+}
+
 #debugText {
     /*font pair for Stick, good for longer blocks of text*/
     font-family: 'Open Sans', sans-serif;
@@ -11,6 +16,7 @@ button {
     width: 400px;
     height: 600px;
     position: relative;
+    margin: auto;
 }
 
 #gameCanvas {
