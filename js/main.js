@@ -44,5 +44,10 @@ function drawEverything() {
 // quick debug function for debugging while working on
 // a mobile device without access to `console.log()`
 function debug(text) {
-  document.getElementById('debugText').innerHTML = text;
+  //document.getElementById('debugText').innerHTML = text;
+}
+
+function winTester() {
+  player1PieceIndices = [0];
+  player2PieceIndices = [6];
 }

@@ -218,7 +218,7 @@ function drawCreditsMenu(){
       drawText(11, 'white', 'left', creditsList[i], leftX, topY+i*skipY);
     }
 
-    backgroundSelect.style.display = 'none';
+    pauseMenuButtons.style.display = 'none';
   }
 }
 
@@ -233,14 +233,14 @@ function drawPauseMenu(){
   if(gamePaused)
   {
     canvasContext.drawImage(pause_background, 0,0);
-    backgroundSelect.style.display = 'block';
+    pauseMenuButtons.style.display = 'block';
     drawText(24, 'white', 'center', 'PAUSED', canvas.width / 2, 150);
     drawText(18, 'white', 'center', 'Background', 125, canvas.height / 2);
     backgroundSelect.style.display = "block";
   }
   else
   {
-    backgroundSelect.style.display = 'none';
+    pauseMenuButtons.style.display = 'none';
   }
 }
 

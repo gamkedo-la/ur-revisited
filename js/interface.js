@@ -81,7 +81,9 @@ function tryToSelectPiece(clickedIdx) {
   if(currentPlayerPieceList.includes(clickedIdx)) {
       selectedIdx = clickedIdx;
       selectedCanMoveToIdx = getAvailableMove(clickedIdx)
-      pieceSelectSFX.play();
+      if(soundsOn) {
+        pieceSelectSFX.play();
+      }
   }
 }
 
@@ -105,7 +107,9 @@ function tryToMoveSelectedPiece(clickedIdx) {
         checkIfOpponentPieceExist(clickedIdx);
         selectedIdx = -1; // clear selection
         selectedCanMoveToIdx = -1; // clear movement marker
-        pieceMovementSFX.play(); // play movement SFX
+        if(soundsOn) {
+          pieceMovementSFX.play(); // play movement SFX
+        }
 
         if(GAME_BOARD[clickedIdx] == TILE_ROSARY) {
             // player gets to roll again
@@ -182,23 +186,24 @@ function rollDice() {
     diceRollSound = Math.floor(Math.random()*diceRollSounds.length);
   }
 
-  diceRollSounds[diceRollSound].play();
+
+  if(soundsOn) {
+    diceRollSounds[diceRollSound].play();
+  }
   prevDiceRollSound = diceRollSound;
   //console.log("Playing dice roll sound " + diceRollSound);
 
-  if(playerMovementPoints === 0) {
+  if(playerMovementPoints === 0 || getAvailablePlayerMoves(currentPlayer).length < 1) {
     endPlayerTurn();
   }
 
-  if(getAvailablePlayerMoves(currentPlayer).length < 1) {
-    endPlayerTurn();
-  }
 }
 
 function checkForGameEnd() {
   console.log("check for game end");
   if(currentPlayerPieceList.length === 0) {
     console.log("Player "+ currentPlayer +" wins!");
+    triggerGameEnd();
   }
 }
 
@@ -220,4 +225,14 @@ function endPlayerTurn() {
 
 	debug("Player " + currentPlayer + "'s turn.");
 	console.log("Player " + currentPlayer + "'s turn.");
+}
+
+function triggerGameEnd() {
+  winText.innerHTML = 'Player '+ currentPlayer +' wins!!';
+  if(currentPlayer === 1) {
+    gameEndScreen.style.backgroundColor = 'rgba(156, 0, 7, 0.8)';
+  } else {
+    gameEndScreen.style.backgroundColor = 'rgba(15, 0, 159, 0.8)';
+  }
+  gameEndScreen.style.display = 'block';
 }

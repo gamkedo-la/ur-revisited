@@ -1,8 +1,17 @@
-var backgroundSelect = document.getElementById("backgroundSelect");
+// HTML Div & Button vars
+var pauseMenuButtons = document.getElementById("pauseMenuButtons");
 var menuButtons = document.getElementById("menuButtonsDiv");
+var gameEndScreen = document.getElementById("gameEndScreen");
+var winText = document.getElementById("winText");
+
+var backgroundSelect = document.getElementById("backgroundSelect");
+var musicToggleButton = document.getElementById("musicToggleButton");
+var soundEffectsToggleButton = document.getElementById("soundEffectsToggleButton");
+var gameResetButton = document.getElementById("gameResetButton");
 
 var pauseButton = document.getElementById("pauseButton");
 
+// Background image vars
 var background_modernWood = document.createElement("img");
 var background_sandStone = document.createElement("img");
 var background_rocks = document.createElement("img");
@@ -16,6 +25,7 @@ var highlight_green = document.createElement("img");
 var highlight_dk_red = document.createElement("img");
 var highlight_dk_blue = document.createElement("img");
 
+// Dice image vars
 var dice0_0 = document.createElement("img");
 var dice0_1 = document.createElement("img");
 var dice0_2 = document.createElement("img");

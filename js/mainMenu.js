@@ -7,6 +7,8 @@ var roundStarted = false;
 playButton.addEventListener("click", handlePlayButtonClick);
 backToMenuButton.addEventListener("click", handleBackToMenuButtonClick);
 
+gameResetButton.addEventListener("click", resetGame);
+
 function handlePlayButtonClick() {
     showMainMenu = false;
     roundStarted = true;
@@ -18,3 +20,6 @@ function handleBackToMenuButtonClick() {
     showInstructionsMenu = false;
 }
 
+function resetGame() {
+    window.location.reload();
+}
