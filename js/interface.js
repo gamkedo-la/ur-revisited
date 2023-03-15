@@ -181,6 +181,8 @@ function rollDice() {
   turnStage = 'move';
   debug("Roll Total: "+ rollTotal);
 
+
+    
   // Play random dice roll sound  
   while (diceRollSound == prevDiceRollSound) {
     diceRollSound = Math.floor(Math.random()*diceRollSounds.length);
@@ -225,6 +227,9 @@ function endPlayerTurn() {
 
 	debug("Player " + currentPlayer + "'s turn.");
 	console.log("Player " + currentPlayer + "'s turn.");
+    if(currentPlayer === 2 && singlePlayerMode === true) {
+        runAIPlayerTurn();
+    }
 }
 
 function triggerGameEnd() {

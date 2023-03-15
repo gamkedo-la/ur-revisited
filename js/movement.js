@@ -49,3 +49,7 @@ function getAvailablePlayerMoves(playerNum) {
   }
   return movesArray;
 }
+
+function runAIPlayerTurn() {
+    //TODO
+}

@@ -1,4 +1,5 @@
 var canvas, canvasContext;
+var singlePlayerMode = false;
 
 window.onload = function() {
   canvas = document.getElementById('gameCanvas');
