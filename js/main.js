@@ -52,3 +52,11 @@ function winTester() {
   player1PieceIndices = [0];
   player2PieceIndices = [6];
 }
+
+function randomIdx(arrayArg) {
+    let max = arrayArg.length - 1;
+
+    let idx = Math.floor(Math.random()*max);
+
+    return Idx;
+}

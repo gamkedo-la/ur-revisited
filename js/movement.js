@@ -51,5 +51,10 @@ function getAvailablePlayerMoves(playerNum) {
 }
 
 function runAIPlayerTurn() {
-    //TODO
+    let possibleMoves = getAvailablePlayerMoves(2);
+
+    // pick random move
+    let pickedMove = possibleMoves[randomIdx(possibleMoves)];
+
+    // make the move
 }
