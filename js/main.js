@@ -58,5 +58,5 @@ function randomIdx(arrayArg) {
 
     let idx = Math.floor(Math.random()*max);
 
-    return Idx;
+    return idx;
 }

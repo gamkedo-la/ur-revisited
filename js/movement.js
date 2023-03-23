@@ -50,11 +50,42 @@ function getAvailablePlayerMoves(playerNum) {
   return movesArray;
 }
 
-function runAIPlayerTurn() {
-    let possibleMoves = getAvailablePlayerMoves(2);
+function waitOneSecond() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve('done');
+        }, 1000);
+    });
+}
 
-    // pick random move
-    let pickedMove = possibleMoves[randomIdx(possibleMoves)];
+async function runAIPlayerTurn() {
+    while(currentPlayer === 2) {
+        rollDice();
 
-    // make the move
+        await waitOneSecond();
+
+        let possibleMoves = getAvailablePlayerMoves(2);
+
+        makeAIPlayerMove(possibleMoves);
+
+        await waitOneSecond();
+    }
+
+}
+
+function makeAIPlayerMove(possibleMoves) {
+    console.log("possible moves", possibleMoves);
+    if(possibleMoves.length > 0) {
+        let pickedMove = possibleMoves[randomIdx(possibleMoves)];
+        console.log("picked move", pickedMove)
+
+        // make the move
+        tryToSelectPiece(pickedMove.startIdx);
+        tryToMoveSelectedPiece(pickedMove.endIdx);
+
+        console.log("made move");
+
+    } else { // ie - no available moves
+        // end player turn 
+    }
 }

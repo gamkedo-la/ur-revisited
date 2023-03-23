@@ -156,7 +156,7 @@ function checkIfOpponentPieceExist(clickedIdx){
   }
 }
 
-function rollDice() {
+async function rollDice() {
   let diceRolls = [];
   let diceStartIdx = 72;
   let rollTotal = 0;
@@ -196,6 +196,7 @@ function rollDice() {
   //console.log("Playing dice roll sound " + diceRollSound);
 
   if(playerMovementPoints === 0 || getAvailablePlayerMoves(currentPlayer).length < 1) {
+    await waitOneSecond();
     endPlayerTurn();
   }
 

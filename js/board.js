@@ -197,7 +197,15 @@ function drawBoard() {
     drawTileY += TILE_H;
     var drawTileX = BOARD_X_OFFSET;
     } // end of for each row
-  drawMainTitle();
+    drawMainTitle();
+
+    // draw player number of moves
+    if(turnStage === 'move') {
+        console.log("drawing text", 'Total: '+playerMovementPoints);
+        drawText(14, 'black', 'center', 'Total: '+playerMovementPoints, 
+            canvas.width / 2, 500);
+    }
+
 } // end of draw board 
 
 function drawPieces() {
