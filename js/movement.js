@@ -16,7 +16,7 @@ var currentPlayerPieceList = []; // initial value set in setupBoard() in js/boar
 var opponentPlayerPieceList = [];
 
 
-function getAvailableMove(pieceIdx) {
+function getAvailablePieceMoves(pieceIdx) {
   if(currentPlayer == 1) {
     var pathIndexOfMoveStart = 
       PLAYER_1_PATH.indexOf(pieceIdx);
@@ -35,15 +35,15 @@ function getAvailablePlayerMoves(playerNum) {
     // for each piece in current player's list
   for(var i=0;i<currentPlayerPieceList.length;i++) {
       // if this piece won't land on another friendly piece when moved...
-    if(!currentPlayerPieceList.includes(getAvailableMove(currentPlayerPieceList[i]))
+    if(!currentPlayerPieceList.includes(getAvailablePieceMoves(currentPlayerPieceList[i]))
         // and it will not land on an occupied center rosary piece
       && !(currentPlayerPieceList[i] == 31 && opponentPlayerPieceList.includes(31)) 
         // and endIdx will still be on the board
-      && typeof(getAvailableMove(currentPlayerPieceList[i])) != "undefined" ) {
+      && typeof(getAvailablePieceMoves(currentPlayerPieceList[i])) != "undefined" ) {
 
         movesArray.push({
           startIdx: currentPlayerPieceList[i],
-          endIdx: getAvailableMove(currentPlayerPieceList[i])
+          endIdx: getAvailablePieceMoves(currentPlayerPieceList[i])
         });
     }
   }
