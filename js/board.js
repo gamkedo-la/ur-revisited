@@ -154,9 +154,9 @@ function drawBoard() {
                   colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'yellow');
                 }
                 // if the selected piece can move here, draw a different box
-                if(selectedCanMoveToIdx == arrayIndex) {
-                    if(!currentPlayerPieceList.includes(selectedCanMoveToIdx) && 
-                      !(selectedCanMoveToIdx == 31 && opponentPlayerPieceList.includes(31))) {
+                if(availablePieceMoves.includes(arrayIndex)) {
+                    // if(!currentPlayerPieceList.includes(availablePieceMoves) && 
+                      //!(availablePieceMoves == 31 && opponentPlayerPieceList.includes(31))) {
                 // player has no piece at dest & dest is not center rosary with opponent piece
                       colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'lightblue');
                     } else {

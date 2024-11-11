@@ -9,7 +9,7 @@ const PLAYER_2_PATH = [
 ];
 
 var playerMovementPoints = 0;
-var selectedCanMoveToIdx = -1;
+var availablePieceMoves = [];
 
 var currentPlayerPath = PLAYER_1_PATH;
 var currentPlayerPieceList = []; // initial value set in setupBoard() in js/board.js
@@ -17,15 +17,15 @@ var opponentPlayerPieceList = [];
 
 
 function getAvailablePieceMoves(pieceIdx) {
-  if(currentPlayer == 1) {
-    var pathIndexOfMoveStart = 
-      PLAYER_1_PATH.indexOf(pieceIdx);
-    return PLAYER_1_PATH[pathIndexOfMoveStart + playerMovementPoints];
-  } else {
-    var pathIndexOfMoveStart = 
-      PLAYER_2_PATH.indexOf(pieceIdx);
-    return PLAYER_2_PATH[pathIndexOfMoveStart + playerMovementPoints];
-  }
+    // TODO: switch based off piece type??
+    // actually, should probably just call a method on piece class so
+    // it gets custom values for each piece type, but for now:
+    return [
+        pieceIdx - 1, // left 1 square
+        pieceIdx + 1, // right 1 square
+        pieceIdx - BOARD_COLS, // up 1 square
+        pieceIdx + BOARD_COLS, // down 1 square
+    ];
 }
 
 // move to AI file?
