@@ -1,24 +1,28 @@
 const TILE_W = 40;
 const TILE_H = 40;
 const TILE_GAP = 2;
-const BOARD_COLS = 7;
-const BOARD_ROWS = 12;
+const BOARD_COLS = 16;
+const BOARD_ROWS = 16;
 const BOARD_X_OFFSET = 60;
 const BOARD_Y_OFFSET = 60;
 
 const GAME_BOARD = [
-   5,0, 0, 0, 0,0,6,
-   5,0, 2,12, 2,0,6,
-   5,0,15,13,15,0,6,
-   5,0,13,14,13,0,6,
-   5,0,15, 2,15,0,6,
-   5,0, 0,13, 0,0,6,
-   5,0, 4,14, 4,0,6,
-   0,0, 2,15, 2,0,0,
-   0,0,16,13,16,0,0,
-   0,0, 0, 0, 0,0,0,
-   0,8, 7, 7, 7,7,0,
-   0,0, 0, 0, 0,0,0,
+   0,0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,
+   0,1, 2,12, 2,1,1,1,1,1,1,1,1,1,1,0,
+   0,1,15,13,15,1,5,1,1,6,1,1,1,1,1,0,
+   0,1, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,0,
+   0,1, 2,12, 2,1,1,1,1,1,1,1,1,1,1,0,
+   0,1,15,13,15,1,1,5,1,1,1,1,1,1,1,0,
+   0,1,13,14,13,1,1,1,1,1,1,6,1,1,1,0,
+   0,1,15, 2,15,1,1,1,1,1,1,1,1,1,1,0,
+   0,1, 1,13, 1,1,1,1,1,1,1,1,1,1,1,0,
+   0,1, 2,14, 2,1,1,1,1,1,1,1,1,1,1,0,
+   0,1, 2,15, 2,1,5,1,1,1,1,6,1,1,1,0,
+   0,1,16,13,16,1,5,1,1,1,1,6,1,1,1,0,
+   0,1, 1, 1, 1,1,5,1,1,1,1,6,1,1,1,0,
+   0,1, 1, 1, 1,1,5,1,1,1,1,6,1,1,1,0,
+   0,1, 1, 1, 1,1,1,1,1,1,1,1,1,1,1,0,
+   0,0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,
 ];
 
 const BOARD_EMPTY_SPACE = 0;
@@ -150,9 +154,9 @@ function drawBoard() {
                   colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'yellow');
                 }
                 // if the selected piece can move here, draw a different box
-                if(selectedCanMoveToIdx == arrayIndex) {
-                    if(!currentPlayerPieceList.includes(selectedCanMoveToIdx) && 
-                      !(selectedCanMoveToIdx == 31 && opponentPlayerPieceList.includes(31))) {
+                if(availablePieceMoves.includes(arrayIndex)) {
+                    // if(!currentPlayerPieceList.includes(availablePieceMoves) && 
+                      //!(availablePieceMoves == 31 && opponentPlayerPieceList.includes(31))) {
                 // player has no piece at dest & dest is not center rosary with opponent piece
                       colorRect(drawTileX+3,drawTileY+3, TILE_W - 6,TILE_H - 6, 'lightblue');
                     } else {
@@ -169,16 +173,16 @@ function drawBoard() {
                   canvasContext.drawImage(player2Piece, drawTileX,drawTileY);
                 }               
 
-                if (turnStage === 'roll')
-                {
-                  if(tileKindHere === ROLL_BUTTON) {
-                    if(currentPlayer === 1) {
-                      canvasContext.drawImage(highlight_dk_red, drawTileX,drawTileY);
-                    } else { // currentPlayer === 2
-                      canvasContext.drawImage(highlight_dk_blue, drawTileX,drawTileY);
-                    }
-                  }
-                }
+                // if (turnStage === 'roll')
+                // {
+                //   if(tileKindHere === ROLL_BUTTON) {
+                //     if(currentPlayer === 1) {
+                //       canvasContext.drawImage(highlight_dk_red, drawTileX,drawTileY);
+                //     } else { // currentPlayer === 2
+                //       canvasContext.drawImage(highlight_dk_blue, drawTileX,drawTileY);
+                //     }
+                //   }
+                // }
 
                 if(currentPlayer === 1) {
                   if(tileKindHere === PLAYER_1_HOME_ROW) {
@@ -200,11 +204,11 @@ function drawBoard() {
     drawMainTitle();
 
     // draw player number of moves
-    if(turnStage === 'move') {
-        console.log("drawing text", 'Total: '+playerMovementPoints);
-        drawText(14, 'black', 'center', 'Total: '+playerMovementPoints, 
-            canvas.width / 2, 500);
-    }
+    // if(turnStage === 'move') {
+    //     console.log("drawing text", 'Total: '+playerMovementPoints);
+    //     drawText(14, 'black', 'center', 'Total: '+playerMovementPoints, 
+    //         canvas.width / 2, 500);
+    // }
 
 } // end of draw board 
 

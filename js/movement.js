@@ -9,23 +9,23 @@ const PLAYER_2_PATH = [
 ];
 
 var playerMovementPoints = 0;
-var selectedCanMoveToIdx = -1;
+var availablePieceMoves = [];
 
 var currentPlayerPath = PLAYER_1_PATH;
 var currentPlayerPieceList = []; // initial value set in setupBoard() in js/board.js
 var opponentPlayerPieceList = [];
 
 
-function getAvailableMove(pieceIdx) {
-  if(currentPlayer == 1) {
-    var pathIndexOfMoveStart = 
-      PLAYER_1_PATH.indexOf(pieceIdx);
-    return PLAYER_1_PATH[pathIndexOfMoveStart + playerMovementPoints];
-  } else {
-    var pathIndexOfMoveStart = 
-      PLAYER_2_PATH.indexOf(pieceIdx);
-    return PLAYER_2_PATH[pathIndexOfMoveStart + playerMovementPoints];
-  }
+function getAvailablePieceMoves(pieceIdx) {
+    // TODO: switch based off piece type??
+    // actually, should probably just call a method on piece class so
+    // it gets custom values for each piece type, but for now:
+    return [
+        pieceIdx - 1, // left 1 square
+        pieceIdx + 1, // right 1 square
+        pieceIdx - BOARD_COLS, // up 1 square
+        pieceIdx + BOARD_COLS, // down 1 square
+    ];
 }
 
 // move to AI file?
@@ -35,15 +35,15 @@ function getAvailablePlayerMoves(playerNum) {
     // for each piece in current player's list
   for(var i=0;i<currentPlayerPieceList.length;i++) {
       // if this piece won't land on another friendly piece when moved...
-    if(!currentPlayerPieceList.includes(getAvailableMove(currentPlayerPieceList[i]))
+    if(!currentPlayerPieceList.includes(getAvailablePieceMoves(currentPlayerPieceList[i]))
         // and it will not land on an occupied center rosary piece
       && !(currentPlayerPieceList[i] == 31 && opponentPlayerPieceList.includes(31)) 
         // and endIdx will still be on the board
-      && typeof(getAvailableMove(currentPlayerPieceList[i])) != "undefined" ) {
+      && typeof(getAvailablePieceMoves(currentPlayerPieceList[i])) != "undefined" ) {
 
         movesArray.push({
           startIdx: currentPlayerPieceList[i],
-          endIdx: getAvailableMove(currentPlayerPieceList[i])
+          endIdx: getAvailablePieceMoves(currentPlayerPieceList[i])
         });
     }
   }
