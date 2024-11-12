@@ -80,7 +80,7 @@ function tryToSelectPiece(clickedIdx) {
   console.log("trying to select at idx", clickedIdx);
   if(currentPlayerPieceList.includes(clickedIdx)) {
       selectedIdx = clickedIdx;
-      selectedCanMoveToIdx = getAvailablePieceMoves(clickedIdx)
+      selectedCanMoveToIdx = getAvailableMove(clickedIdx)
       if(soundsOn) {
         pieceSelectSFX.play();
       }
