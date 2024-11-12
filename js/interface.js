@@ -80,7 +80,7 @@ function tryToSelectPiece(clickedIdx) {
   console.log("trying to select at idx", clickedIdx);
   if(currentPlayerPieceList.includes(clickedIdx)) {
       selectedIdx = clickedIdx;
-      availablePieceMoves = getAvailablePieceMoves(clickedIdx)
+      selectedCanMoveToIdx = getAvailablePieceMoves(clickedIdx)
       if(soundsOn) {
         pieceSelectSFX.play();
       }
@@ -105,7 +105,7 @@ function tryToMoveSelectedPiece(clickedIdx) {
         currentPlayerPieceList.push(clickedIdx);
         checkIfOpponentPieceExist(clickedIdx);
         selectedIdx = -1; // clear selection
-        availablePieceMoves = -1; // clear movement marker
+        selectedCanMoveToIdx = -1; // clear movement marker
         if(soundsOn) {
           pieceMovementSFX.play(); // play movement SFX
         }
