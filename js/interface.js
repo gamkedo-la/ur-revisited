@@ -1,5 +1,5 @@
 var currentPlayer = 1;
-// var turnStage = 'move'; // 'roll' or 'move'
+var turnStage = 'roll'; // 'roll' or 'move'
 
 // MouseClick/Touch input Handling Code
   var selectedIdx = -1;
@@ -31,23 +31,23 @@ function mouseClickHandler(evt) {
     } 
 
     // is click on the roll button?
-    // if(tileKindClicked === ROLL_BUTTON) {
-    //   //console.log("clicked roll button");
-    //     if(turnStage == 'roll') {
-    //       rollDice();
-    //     }
-    // }
+    if(tileKindClicked === ROLL_BUTTON) {
+      //console.log("clicked roll button");
+        if(turnStage == 'roll') {
+          rollDice();
+        }
+    }
 
     // is click on a board tile?
     if(BOARD_TILES.includes(tileKindClicked)) {
       //console.log("Clicked a board tile");
-      //if(turnStage === 'move') {
+      if(turnStage === 'move') {
         if(selectedIdx == -1 || currentPlayerPieceList.includes(clickedIdx)) {
           tryToSelectPiece(clickedIdx);
         } else { 
           tryToMoveSelectedPiece(clickedIdx);
         }
-      //}
+      }
       //resolveBoardClick(selectedIdx);
     }
   }
@@ -89,7 +89,8 @@ function tryToSelectPiece(clickedIdx) {
 
 function tryToMoveSelectedPiece(clickedIdx) {
   console.log("trying to move to idx", clickedIdx);
-  if(currentPlayerPieceList.includes(selectedIdx)) {
+  if(currentPlayerPieceList.includes(selectedIdx) && 
+    selectedCanMoveToIdx == clickedIdx) {
     //
         if(opponentPlayerPieceList.includes(clickedIdx) &&
           clickedIdx == 31) {
@@ -111,10 +112,10 @@ function tryToMoveSelectedPiece(clickedIdx) {
         }
 
         if(GAME_BOARD[clickedIdx] == TILE_ROSARY) {
-            // // player gets to roll again
-            // console.log("rosary hit");
-            // turnStage = 'roll';
-            // playerMovementPoints = 0;
+            // player gets to roll again
+            console.log("rosary hit");
+            turnStage = 'roll';
+            playerMovementPoints = 0;
         } else if(GAME_BOARD[clickedIdx] == TILE_END) {
             currentPlayerPieceList.splice(
               currentPlayerPieceList.indexOf(clickedIdx), 1
@@ -167,18 +168,18 @@ async function rollDice() {
     let roll = Math.floor(Math.random()*2);
     let diceImgIdx = Math.floor(Math.random()*3); 
     //console.log("roll", roll);
-    // if( roll == 0 ){
-    //   GAME_BOARD[diceStartIdx + i] = dice_0_values[diceImgIdx];
-    // } else { // roll == 1
-    //   GAME_BOARD[diceStartIdx + i] = dice_1_values[diceImgIdx];
-    //   rollTotal += 1;
-    // }
+    if( roll == 0 ){
+      GAME_BOARD[diceStartIdx + i] = dice_0_values[diceImgIdx];
+    } else { // roll == 1
+      GAME_BOARD[diceStartIdx + i] = dice_1_values[diceImgIdx];
+      rollTotal += 1;
+    }
     //diceRolls.push(roll);
   }
   //console.log("Dice Rolls: ", diceRolls);
-  // playerMovementPoints = rollTotal;
-  // turnStage = 'move';
-  // debug("Roll Total: "+ rollTotal);
+  playerMovementPoints = rollTotal;
+  turnStage = 'move';
+  debug("Roll Total: "+ rollTotal);
 
 
     
@@ -223,7 +224,7 @@ function endPlayerTurn() {
 	}
 
   playerMovementPoints = 0;
-  // turnStage = 'roll';
+  turnStage = 'roll';
 
 	debug("Player " + currentPlayer + "'s turn.");
 	console.log("Player " + currentPlayer + "'s turn.");

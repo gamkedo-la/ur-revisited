@@ -13,11 +13,8 @@ body {
 }
 
 #container {
-    /*
     width: 400px;
     height: 600px;
-    */
-    width: fit-content; /* temporary until canvas size is finalized */
     position: relative;
     margin: auto;
 }
